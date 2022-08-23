@@ -26,7 +26,18 @@
             @Html.DisplayFor(modelItem => item.r_name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.r_status)
+            @{
+                if (item.r_status ==Convert.ToByte(1))
+                {
+                    <p>Active</p>
+                }
+                else if (item.r_status == Convert.ToByte(0))
+                {
+                    <p>In Active</p>
+
+                }
+            }
+            @*@Html.DisplayFor(modelItem => item.r_status)*@
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.r_id }) |

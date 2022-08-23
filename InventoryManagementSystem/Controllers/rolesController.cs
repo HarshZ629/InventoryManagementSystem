@@ -38,6 +38,10 @@ namespace InventoryManagementSystem.Controllers
         // GET: roles/Create
         public ActionResult Create()
         {
+            List<SelectListItem> li = new List<SelectListItem>();
+            li.Add(new SelectListItem() { Text = "Active", Value = "1" });
+            li.Add(new SelectListItem() { Text = "In-Active", Value = "0" });
+            ViewBag.DD = new SelectList(li, "Value", "Text");
             return View();
         }
 
@@ -65,6 +69,10 @@ namespace InventoryManagementSystem.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            List<SelectListItem> li = new List<SelectListItem>();
+            li.Add(new SelectListItem() { Text = "Active", Value = "1" });
+            li.Add(new SelectListItem() { Text = "In-Active", Value = "0" });
+            ViewBag.DD = new SelectList(li, "Value", "Text");
             tbl_roles tbl_roles = db.tbl_roles.Find(id);
             if (tbl_roles == null)
             {
